@@ -7,13 +7,14 @@ public class Main {
             .setRollNo(110)
             .setAge(25)
             .build();
+        System.out.println("Successfully created: " + student.name);
     }
 }
 class Student{
-    private String name;
-    private String department;
-    private int rollNo;
-    private int age;
+     String name;
+     String department;
+     int rollNo;
+     int age;
     public Student(Builder b){
         this.name=b.getName();
         this.department=b.getDepartment();
@@ -31,6 +32,7 @@ class Student{
         private Builder(){}
         public Student build(){
             if(this.age<25) throw new IllegalArgumentException("Age should be above or equal to 25!!");
+            System.out.println("Successfully created: " + this.getName());
             return new Student(this);
         }
         public String getName(){
